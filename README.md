@@ -2,7 +2,7 @@
 
 **GTVO** is a C++ tool developed to match and organize **TPM values** across orthogroups (HOGs) derived from the PhyloRSeq++ pipeline. It correlates processed protein names, transcript expression (TPM) values, and orthogroup structure from **OrthoFinder** and **Phylopypruner** outputs.
 
-This tool was developed for the *Coleochaetophyceae* phylogenomics project and is useful for gene expression summarization across orthogroups, with special consideration for renamed proteins and taxonomic structure.
+This tool was developed for the Coleochaetophyceae phylogenomics project and helps summarize gene expression across orthogroups, with special consideration for renamed proteins and taxonomic structure.
 
 ---
 
@@ -26,6 +26,7 @@ This tool was developed for the *Coleochaetophyceae* phylogenomics project and i
 | `-r`     | Output folder for results |
 | `-g`     | Taxonomic group file (used for header ordering) |
 | `-o`     | OrthoFinder output folder (for N0.tsv file) |
+| `-x`     | Prefix for the output files |
 
 ---
 
@@ -35,17 +36,18 @@ This tool was developed for the *Coleochaetophyceae* phylogenomics project and i
 
 GTVO expects 7 inputs:
 
-- Filtered and unfiltered orthogroup data
+- Filtered and unfiltered orthogroup data (In- and Output of FPPPResult)
 - N0.tsv from OrthoFinder (Phylogenetic_Hierarchical_Orthogroups)
 - TPM expression values per sample/species
-- Protein header renaming files
+- Protein header renaming files (It's common practice to use simplified names for orthofinder for easy lookup)
 - A taxonomic group reference (used for consistent column ordering)
+
 
 ---
 
 ### 🧬 Step 2 – Parse Input Files
 
-- **Headers** from all input files are parsed
+- All Fasta files from both the COGS PPP output and C
 - Renaming tables are used to match standardized protein names to original IDs
 - TPM values are extracted per species/sample
 - The **taxonomic group file** is used to alphabetically sort species for consistent header ordering
@@ -60,16 +62,16 @@ GTVO produces **two tables**:
 
 For each HOG that passed PPP filtering:
 - Uses only the relevant HOGs (from FilterPPP output)
-- Loops over each gene in the fasta file
+- Loops over each protein in the fasta file
 - Matches renamed headers to original names
 - Extracts TPM from species-specific tables
-- Sets **`N/A`** if data is missing or the gene wasn't expressed
+- Sets **`N/A`** if TPM data is missing or to `0` when the species has no represented member for this gene family.
 
 #### 2. All HOGs Table (based on N0.tsv)
 
 - Reads all orthogroups from N0.tsv
 - Handles multiple proteins per species
-- Fallbacks to `0` or `N/A` when TPM is missing or renaming files don’t exist
+- Fallbacks to `0` or `N/A` when TPM is missing (0) or renaming files (N/A) don’t exist 
 - Includes expression for every protein instance (can be redundant)
 
 ---
