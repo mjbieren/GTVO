@@ -114,6 +114,17 @@ For an example script see [GTVO_Example.sh](https://github.com/mjbieren/GTVO/blo
 
 ---
 
+## ⚙️ Executables
+
+Precompiled static executables available:  
+
+- Debian 12: [GTVO_Static_Debian.out](https://github.com/mjbieren/GTVO/blob/main/Sources/Executables/GTVO_Static_Debian.out)  
+- Rocky Linux 8: [GTVO_Static_HPC.out](https://github.com/mjbieren/GTVO/blob/main/Sources/Executables/GTVO_Static_HPC.out)  
+
+Or compile from source. (Boost library 1.88, visual studio 2019, gcc compiler)
+
+---
+
 ## 📧 Contact
 
 **Maaike Jacobine Bierenbroodspot**  
