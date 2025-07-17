@@ -50,7 +50,7 @@ GTVO expects 7 inputs:
 - All Fasta files from both the COGS PPP output and C
 - Renaming tables are used to match standardized protein names to original IDs
 - TPM values are extracted per species/sample
-- The **taxonomic group file** is used to alphabetically sort species for consistent header ordering
+- The **taxonomic group file** is used to sort species for consistent header ordering alphabetically
 
 ---
 
@@ -110,6 +110,7 @@ project/
 
 See [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16044005.svg)](https://doi.org/10.5281/zenodo.16044005) for the example set.
 
+For an example script see [GTVO_Example.sh](https://github.com/mjbieren/GTVO/blob/main/GTVO_Example.sh)
 
 ---
 
