@@ -28,6 +28,9 @@ This tool was developed for the Coleochaetophyceae phylogenomics project and hel
 | `-o`     | OrthoFinder output folder (for N0.tsv file) |
 | `-x`     | Prefix for the output files |
 
+
+> ⚠️ **NOTE:**
+> Currently, the TPM folders have to be structured in a way that the folder names should end with _1. In the future I will add a parameter where you can mapped file (species_name \t TPM_Folder_Name>
 ---
 
 ## 📥 Step-by-Step Process
